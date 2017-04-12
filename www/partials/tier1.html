@@ -1,0 +1,32 @@
+<div ng-cloak>			
+  <md-card>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline"><img src="img/jesse_tiny.png" class="md-avatar" alt="Jesse">&nbsp;{{translation.CHECKIN_TELL_ME}}</span>
+      </md-card-title-text>
+    </md-card-title>
+
+    <md-card-content> 
+		<md-input-container class="md-block">
+			<textarea md-select-on-focus aria-label="tellMe" ng-model="tellMe" rows="3"></textarea>
+		</md-input-container>
+    </md-card-content>
+  </md-card>
+  
+  <md-card>
+    <md-card-title>
+      <md-card-title-text>
+        <span class="md-headline"><img src="img/jesse_tiny.png" class="md-avatar" alt="Jesse">&nbsp;{{translation.CHECKIN_HOW_TO_COPE}}</span>
+      </md-card-title-text>
+    </md-card-title>
+
+    <md-card-content> 
+		<md-input-container class="md-block">
+        	<textarea md-select-on-focus aria-label="howAre" ng-model="howAre" rows="3"></textarea>
+        </md-input-container>
+    </md-card-content>
+    <md-card-actions layout="row" layout-align="end center">
+		<md-button class="md-accent" ng-click="saveToLog()" href="#/log">{{translation.CONTINUE}}&nbsp;<ng-md-icon icon="navigate_next" style="fill: grey"></ng-md-icon></md-button>
+    </md-card-actions>
+  </md-card>
+</div>

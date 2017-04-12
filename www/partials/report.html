@@ -1,0 +1,89 @@
+<div layout="column" ng-cloak>
+
+    <md-content>
+        <md-tabs md-border-bottom="" md-dynamic-height="">
+
+            <md-tab label="Daily Summary" ng-click="loadDailySummary();">
+                <md-content class="md-padding">
+
+                    <h3 class="md-display-2">Daily summary</h3>
+
+                    <md-content>
+                        <md-list>
+                            <md-list-item class="md-3-line" ng-repeat="sleepInfo in sleepReport">
+                                <div class="md-list-item-text" ng-style="sleepInfo.style">
+                                    <h2>{{sleepInfo.date}}</h2>
+                                    <h4>Slept from {{sleepInfo.start}} to {{sleepInfo.end}}</h4>
+                                    <p>{{sleepInfo.awoken}} times awoken - {{sleepInfo.total}} hours slept total.</p>
+                                </div>
+                                <md-divider ng-if="!$last"></md-divider>
+                            </md-list-item>
+                        </md-list>
+                    </md-content>
+
+                    <md-button ng-click="loadAll();" class="md-accent" aria-label="View">View all</md-button>
+
+                    <md-button ng-click="clearData();" class="md-accent" aria-label="View">Clear all</md-button>
+
+                </md-content>
+            </md-tab>
+
+            <md-tab label="Sleep Overview" ng-click="loadSleepOverview();">
+                <md-content class="md-padding">
+
+                    <h3 class="md-display-2">Sleep Overview</h3>
+
+                    <md-grid-list md-row-height="1:2" md-gutter="1em" md-cols="7" md-rows="2">
+                        <md-grid-tile md-rowspan="1" md-colspan="1" ng-repeat="sleepInfo in sleepReport" ng-class="sleepInfo.color">
+
+                            <md-grid-tile-header>
+                                <h3>{{sleepInfo.date}}</h3>
+                            </md-grid-tile-header>
+
+                            <ul>
+                                <li>{{sleepInfo.awoken}} times awoken.</li>
+                                <li>Slept from {{sleepInfo.start}} to {{sleepInfo.end}}</li>
+                            </ul>
+
+                            <md-grid-tile-footer>
+                                <h3>{{sleepInfo.total}} hours.</h3>
+                            </md-grid-tile-footer>
+
+                        </md-grid-tile>
+                    </md-grid-list>
+
+                    <md-button ng-click="loadAll();" class="md-accent" aria-label="View">View all</md-button>
+
+                    <md-button ng-click="clearData();" class="md-accent" aria-label="View">Clear all</md-button>
+
+                </md-content>
+            </md-tab>
+
+            <md-tab label="Sleep vs Mood" ng-click="loadSleepMood();">
+                <md-content class="md-padding">
+
+                    <h3 class="md-display-2">Sleep vs Mood</h3>
+
+                    <md-content>
+                        <md-list>
+                            <md-list-item class="md-3-line" ng-repeat="sleepInfo in sleepReport">
+                                <div class="md-list-item-text" ng-style="sleepInfo.style">
+                                    <h2>{{sleepInfo.date}}</h2>
+                                    <h4>Slept from {{sleepInfo.start}} to {{sleepInfo.end}}</h4>
+                                    <p>{{sleepInfo.awoken}} times awoken - {{sleepInfo.total}} hours slept total.</p>
+                                </div>
+                                <md-divider ng-if="!$last"></md-divider>
+                            </md-list-item>
+                        </md-list>
+                    </md-content>
+
+                    <md-button ng-click="loadAll();" class="md-accent" aria-label="View">View all</md-button>
+
+                    <md-button ng-click="clearData();" class="md-accent" aria-label="View">Clear all</md-button>
+
+                </md-content>
+            </md-tab>
+
+        </md-tabs>
+    </md-content>
+</div>

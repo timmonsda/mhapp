@@ -1,0 +1,33 @@
+<div ng-cloak>
+	<md-toolbar class="primary-met-bg" role="toolbar">			
+		<div class="md-toolbar-tools">
+			<h4 class="md-title">
+				Check-In
+			</h4>
+		</div>
+	</md-toolbar>			
+	<md-content class="md-padding">			
+		<md-card ng-repeat="checkin in checkins">
+			<md-card-title>	
+				<md-card-title-text>
+					<span class="md-headline">{{checkin.title}}</span>
+					<span class="md-subhead">{{checkin.subtitle}}</span>
+				</md-card-title-text>
+			</md-card-title>
+			<md-card-content>
+				<div layout="column">
+					<md-slider-container>
+						<span>{{checkin.rangeLeft}}</span>
+						<md-slider flex md-discrete step="1" min="1" max="10" aria-label="{{checkin.title}}"></md-slider>
+						<span flex>{{checkin.rangeRight}}</span>
+					</md-slider-container>			
+					<md-input-container class="md-block">
+						<label>Additional Notes</label>
+						<textarea md-select-on-focus type="text" rows="1"></textarea>
+					</md-input-container>
+				</div>
+			</md-card-content>
+		</md-card>
+		<md-button class="md-raised md-primary" href="#/log" layout-fill>Save</md-button>
+	</md-content>
+</div>

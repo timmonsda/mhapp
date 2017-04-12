@@ -1,0 +1,14 @@
+<div ng-cloak>			
+	<md-content>
+		<md-list>
+	      <md-list-item class="md-2-line" ng-click="goToLink(item.url)" ng-repeat="item in externalLinks.data">
+	        <div class="md-list-item-text">
+	          <span><ng-md-icon icon="link" style="fill: gray"></ng-md-icon>&nbsp;{{item.name}}</span>
+	          <span flex></span>	          
+	          <ng-md-icon class="md-secondary" icon="open_in_new" style="fill: gray"></ng-md-icon>  
+	        </div>
+	       	<md-divider ng-if="!$last"></md-divider>
+	      </md-list-item>
+	    </md-list>
+  	</md-content>
+</div>

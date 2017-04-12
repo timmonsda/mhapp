@@ -1,0 +1,32 @@
+<div layout="column" ng-cloak>
+	<md-toolbar class="primary-met-bg" role="toolbar">			
+		<div class="md-toolbar-tools">
+			<h4 class="md-title">
+				<img src="img/jesse_tiny.png" class="md-avatar" alt="Jesse">&nbsp;I'm {{getMainStatus()}}
+			</h4>
+		</div>
+	</md-toolbar>
+			  		
+	<md-content>		  					
+		<div layout="row" layout-align="center start" layout-wrap>			
+			<md-card ng-click="setYourStatus('Happy');goTo('tier1')">
+				<img src="img/well.png" class="md-card-image" alt="happy">
+			    <md-card-actions layout="row" layout-align="center center">
+					<md-button href="#/tier1" ng-click="setYourStatus('Happy')" class="md-accent" aria-label="Happy">Happy</md-button>
+			    </md-card-actions>
+			</md-card>
+			<md-card ng-click="setYourStatus('Rested');goTo('tier1')">
+				<img src="img/well.png" class="md-card-image" alt="rested">
+			    <md-card-actions layout="row" layout-align="center center">
+					<md-button href="#/tier1" ng-click="setYourStatus('Rested')" class="md-accent" aria-label="Rested">Rested</md-button>
+			    </md-card-actions>
+			</md-card>
+			<md-card ng-click="setYourStatus('Cheerful');goTo('tier1')">
+				<img src="img/well.png" class="md-card-image" alt="cheerful">
+			    <md-card-actions layout="row" layout-align="center center">
+					<md-button href="#/tier1" ng-click="setYourStatus('Cheerful')" class="md-accent" aria-label="Cheerful">Cheerful</md-button>
+			    </md-card-actions>
+			</md-card>
+		</div>
+	</md-content>	
+</div>

@@ -1,0 +1,140 @@
+<!DOCTYPE HTML>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <title>Mental Health App</title>
+    <meta name="format-detection" content="telephone=no" />
+    <meta name="msapplication-tap-highlight" content="no" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="apple-mobile-web-app-capable" content="yes">
+	<meta name="theme-color" content="#335075">
+
+    <link rel="stylesheet" href="lib/angular/css/angular-material.min.css">
+    <link rel="stylesheet" href="lib/angular/css/icon.css">
+	<link href="lib/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+	<link href="lib/bootstrap/css/bootstrap-theme.min.css" rel="stylesheet">
+	<link href="lib/jasny-bootstrap/css/jasny-bootstrap.min.css" rel="stylesheet">
+	<link href="lib/met/css/met.css" rel="stylesheet">
+	<link rel="stylesheet" type="text/css" href="css/index.css" />
+	<link href="lib/met/images/shortcut-icon.png" rel="apple-touch-icon" sizes="180x180" />
+</head>
+<body ng-app="myApp" ng-controller="AppCtrl" layout="row" layout-fill ng-cloak>      
+	<md-sidenav class="md-sidenav-left md-whiteframe-z2" role="sidenav" md-component-id="left" md-is-locked-open="$mdMedia('gt-md')" ng-if="getSideNavState()">
+		<md-toolbar class="md-tall primary-met-bg" layout-align="end end">
+			<div class="md-toolbar-tools" layout layout-padding>
+				<ng-md-icon icon="apps" fill="style: white"></ng-md-icon>
+				<div layout="column" layout-padding>
+					<span class="md-body-2">{{translation.APP_NAME}} / {{translation.APP_VERSION}}</span>
+				</div>
+			</div>
+		</md-toolbar>
+		<md-content role="navigation">
+			<md-list-item ng-click="closeDrawer('left')" href="#/main">
+				<ng-md-icon icon="{{action.icon}}" style="color: gray"></ng-md-icon>
+				<p class="md-body-2">&nbsp;Wellness Tracker </p>
+				<span flex></span>
+				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
+			</md-list-item>
+			<md-list-item ng-click="closeDrawer('left')" href="#/log">
+				<ng-md-icon icon="assessment" style="color: gray"></ng-md-icon>
+				<p class="md-body-2">&nbsp;My Log</p>
+				<span flex></span>
+				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
+			</md-list-item>
+			<md-list-item ng-click="closeDrawer('left')" href="#/diary">
+				<ng-md-icon icon="assessment" style="color: gray"></ng-md-icon>
+				<p class="md-body-2">&nbsp;Diary</p>
+				<span flex></span>
+				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
+			</md-list-item>
+			<md-list-item ng-click="closeDrawer('left')" href="#/toolkit">
+				<ng-md-icon icon="assessment" style="color: gray"></ng-md-icon>
+				<p class="md-body-2">&nbsp;My Toolkit</p>
+				<span flex></span>
+				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
+			</md-list-item>
+			<md-divider></md-divider>
+			<md-list-item ng-click="closeDrawer('left')" href="#/tools">
+				<ng-md-icon icon="assessment" style="color: gray"></ng-md-icon>
+				<p class="md-body-2">&nbsp;Tools</p>
+				<span flex></span>
+				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
+			</md-list-item>
+			<md-list-item ng-click="closeDrawer('left')" href="#/resources">
+				<ng-md-icon icon="assignment_ind" style="color: gray"></ng-md-icon>
+				<p class="md-body-2">&nbsp;{{translation.SIDE_MENU_RESOURCES}}</p>
+				<span flex></span>
+				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
+			</md-list-item>
+			<md-list-item ng-click="closeDrawer('left')" href="#/attitude">
+				<ng-md-icon icon="assessment" style="color: gray"></ng-md-icon>
+				<p class="md-body-2">&nbsp;Attitude for Gratitude</p>
+				<span flex></span>
+				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
+			</md-list-item>
+			<md-divider></md-divider>
+			<md-list-item ng-click="closeDrawer('left')" href="#/links">
+				<ng-md-icon icon="live_help" style="color: gray"></ng-md-icon>
+				<p class="md-body-2">&nbsp;{{translation.SIDE_MENU_LINKS}}</p>
+				<span flex></span>
+				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
+			</md-list-item>
+			<md-list-item ng-click="closeDrawer('left')" href="#/settings">
+				<ng-md-icon icon="settings" style="color: gray"></ng-md-icon>
+				<p class="md-body-2">&nbsp;{{translation.SIDE_MENU_SETTINGS}}</p>
+				<span flex></span>
+				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
+			</md-list-item>
+			<md-list-item ng-click="closeDrawer('left')" href="#/reports">
+                <ng-md-icon icon="assessment" style="color: gray"></ng-md-icon>
+                <p class="md-body-2">&nbsp;Reports</p>
+                <span flex></span>
+                <ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
+            </md-list-item>
+		</md-content>
+	</md-sidenav>
+	
+	<section layout="column" role="main" flex>
+		<md-toolbar class="primary-met-bg" role="toolbar" ng-if="getSideNavState()">
+			<div class="md-toolbar-tools">
+				<md-button class="md-icon-button" ng-click="toggleSidenav('left')" hide-gt-md aria-label="Menu">
+					<ng-md-icon icon="menu" fill="style: white"></ng-md-icon>
+				</md-button>
+				<h4 class="md-title"><img src="img/jesse_tiny.png" class="md-avatar" alt="Jesse">&nbsp;{{getTitle()}}</h4>
+			</div>
+		</md-toolbar>
+	
+		<div ng-view></div>
+			
+<!-- 		<div id="wm-mw"> -->
+<!-- 			<img src="lib/met/images/canada-col.svg" onerror="this.src='lib/met/images/canada-col.png'" alt="Symbol of the Government of Canada"> -->
+<!-- 		</div> -->
+	</section>
+		
+    <script src="lib/angular/js/angular.min.js"></script>    
+    <script src="lib/angular/js/angular-route.min.js"></script>
+  	<script src="lib/angular/js/angular-animate.min.js"></script>
+  	<script src="lib/angular/js/angular-aria.min.js"></script>
+  	<script src="lib/angular/js/angular-messages.min.js"></script>
+   	<script src="lib/angular/js/angular-touch.min.js"></script>
+   	<script src="lib/angular/js/angular-resource.min.js"></script>
+   	<script src="lib/angular/js/angular-sanitize.min.js"></script>
+  	<script src="lib/angular/js/angular-material.min.js"></script>
+  	<script src="lib/angular/js/angular-material-icons.min.js"></script>
+  	    
+	<script src="lib/jquery/jquery.min.js"></script>
+	<script src="lib/bootstrap/js/bootstrap.min.js"></script>
+	<script src="lib/jasny-bootstrap/js/jasny-bootstrap.min.js"></script>
+	<script src="lib/jasny-bootstrap/js/offcanvas.js"></script>
+<!-- 	<script src="js/common.js"></script> -->
+
+ 	<script src="lib/met/js/met.js"></script>
+		
+	<script type="text/javascript" src="js/app.js"></script>
+	<script type="text/javascript" src="js/services.js"></script>
+	<script type="text/javascript" src="js/filters.js"></script>
+    <script type="text/javascript" src="js/controllers.js?v=1"></script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDsTTnH1FlZqsweiFqNqBTZiFv6mtHUXjc" async defer></script>
+<!--     <script src="cordova.js"></script> -->
+</body>
+</html>

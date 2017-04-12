@@ -1,0 +1,93 @@
+<!-- For testing only -->
+<style>
+	.border { border-style: solid;}
+</style>
+
+<script>
+	//Carousel JQuery
+	$('.carousel').carousel({
+		interval: 2000
+	})
+	
+	$( document ).ready(function() {
+		$('.carousel').carousel()
+	});
+</script>
+
+<div ng-cloak>			
+	<md-content>		  					
+		<div layout="column" layout-wrap>			
+			<md-card>
+				<md-card-title>
+					<md-card-title-media layout-padding>
+						<div flex class="border md-media-md card-media"></div>
+					</md-card-title-media>
+					<md-card-title-text>
+						<span class="md-headline">{{selectedTool.name}}</span>
+						<span class="md-subhead">Developed by {{selectedTool.developedBy}}</span>
+						<span class="md-subhead">Verison {{selectedTool.version}}</span>
+					</md-card-title-text>
+				</md-card-title>
+				<div layout="row" layout-padding layout-align="in-between start" layout-wrap>
+					<div>{{selectedTool.description1}}</div>
+				</div>
+
+				<md-divider class="infoDivider"></md-divider>
+				
+				<div layout="row" layout-align="center center">
+					<div id="carousel" class="carousel slide" data-ride="carousel">
+						<ol class="carousel-indicators">
+							<li data-target="#carousel" data-slide-to="0" class="active"></li>
+							<li data-target="#carousel" data-slide-to="1"></li>
+							<li data-target="#carousel" data-slide-to="2"></li>
+						</ol>
+						<div class="carousel-inner" role="listbox">
+							<div class="item active">
+								<img class="d-block img-fluid" src="{{selectedTool.carouselImage1}}" alt="First slide">
+								<div class="carousel-caption d-none d-md-block">
+									<h3>{{selectedTool.carouselImageHeader1}}</h3>
+									<p>{{selectedTool.carouselImageCaption1}}</p>
+								</div>
+							</div>
+							<div class="item">
+								<img class="d-block img-fluid" src="{{selectedTool.carouselImage2}}" alt="Second slide">
+								<div class="carousel-caption d-none d-md-block">
+									<h3>{{selectedTool.carouselImageHeader2}}</h3>
+									<p>{{selectedTool.carouselImageCaption2}}</p>
+								</div>
+							
+							</div>
+							<div class="item">
+								<img class="d-block img-fluid" src="{{selectedTool.carouselImage3}}" alt="Third slide">
+								<div class="carousel-caption d-none d-md-block">
+									<h3>{{selectedTool.carouselImageHeader3}}</h3>
+									<p>{{selectedTool.carouselImageCaption3}}</p>
+								</div>
+							
+							</div>
+						</div>
+						<a class="carousel-control-prev" href="#carousel" role="button" data-slide="prev">
+							<span class="carousel-control-prev-icon" aria-hidden="true"></span>
+							<span class="sr-only">Previous</span>
+						</a>
+						<a class="carousel-control-next" href="#carousel" role="button" data-slide="next">
+							<span class="carousel-control-next-icon" aria-hidden="true"></span>
+							<span class="sr-only">Next</span>
+						</a>
+					</div>
+				</div>
+				
+				<div layout="row" layout-padding layout-align="in-between start" layout-wrap>
+					<div flex="50">{{selectedTool.description1}}</div>
+					
+					<div flex>{{selectedTool.description2}}</div>
+				</div>
+				
+				<md-card-actions layout="row" layout-align="end end">
+					<md-button href="#/info" class="md-raised md-primary" aria-label="Add to Toolbox">Add to Toolkit</md-button>
+					<md-button href="#/tools" class="md-raised md-primary" aria-label="More Details">Back</md-button>
+				</md-card-actions>
+			</md-card>
+		</div>
+	</md-content>
+</div>

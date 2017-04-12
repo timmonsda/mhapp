@@ -1,0 +1,78 @@
+[
+  {
+    "title": "Happiness",
+    "subtitle": "How happy are you today?",
+    "rangeLeft": "Sad",
+	"rangeRight": "Happy"
+  },
+  
+  {
+    "title": "Mindset",
+    "subtitle": "How positive are you today?",
+    "rangeLeft": "Little",
+	"rangeRight": "Very"
+  },
+  
+    {
+    "title": "Motivation",
+    "subtitle": "How motivated are you today?",
+    "rangeLeft": "Little",
+	"rangeRight": "Very"
+  },
+  
+    {
+    "title": "Energy",
+    "subtitle": "How rested are you today?",
+    "rangeLeft": "Tired",
+	"rangeRight": "Rested"
+  },
+  
+    {
+    "title": "Sleep Quality",
+    "subtitle": "How was the quality of your sleep the previous night?",
+    "rangeLeft": "Awful",
+	"rangeRight": "Great"
+  },
+  
+    {
+    "title": "Relaxation",
+    "subtitle": "How stressed are you today?",
+    "rangeLeft": "None",
+	"rangeRight": "A lot"
+  },
+  
+    {
+    "title": "Anxiety",
+    "subtitle": "How anxious are you today?",
+    "rangeLeft": "None",
+	"rangeRight": "A lot"
+  },
+  
+    {
+    "title": "Anxiety Pains",
+    "subtitle": "How are your Anxiety Pains today?",
+    "rangeLeft": "None",
+	"rangeRight": "A lot"
+  },
+  
+    {
+    "title": "Hunger Volume",
+    "subtitle": "How much have you eaten today?",
+    "rangeLeft": "None",
+	"rangeRight": "A lot"
+  },
+  
+    {
+    "title": "Nutrition",
+    "subtitle": "How nutrious have your meals been today?",
+    "rangeLeft": "Little",
+	"rangeRight": "Very"
+  },
+  
+  {
+    "title": "Caffeine Intake",
+    "subtitle": "How much caffeine have you had today?",
+    "rangeLeft": "None",
+	"rangeRight": "A lot"
+  }
+]

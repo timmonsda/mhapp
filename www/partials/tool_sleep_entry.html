@@ -1,0 +1,72 @@
+<div layout="column" ng-cloak>
+
+    <md-content>
+        
+        <md-content class="md-padding">
+            <h3 class="md-display-2">Good morning!</h3>
+
+            <md-card ng-show="true">
+                <md-datepicker ng-model="ToolSleepCtrl.myDate" md-placeholder="Enter date">
+                </md-datepicker>
+            </md-card>
+
+            <md-card ng-show="true">
+
+                <form name="sleepForm">
+
+                    <div layout-gt-sm="row">
+
+                        <md-input-container>
+                            <label>Start time</label>
+                            <md-select ng-model="sleep_start">
+                                <md-option><em>None</em></md-option>
+                                <md-option ng-repeat="sel in timeRange" ng-value="sel.time">
+                                    {{sel.time}}:00
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>End time</label>
+                            <md-select ng-model="sleep_end">
+                                <md-option><em>None</em></md-option>
+                                <md-option ng-repeat="sel in timeRange" ng-value="sel.time">
+                                    {{sel.time}}:00
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Total sleep</label>
+                            <md-select ng-model="sleep_total">
+                                <md-option><em>None</em></md-option>
+                                <md-option ng-repeat="sel in timeRange" ng-value="sel.time">
+                                    {{sel.time}} hours
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+
+                        <md-input-container>
+                            <label>Times awoken</label>
+                            <md-select ng-model="sleep_awoken">
+                                <md-option><em>None</em></md-option>
+                                <md-option ng-repeat="sel in timeRange" ng-value="sel.time">
+                                    {{sel.time}} time(s)
+                                </md-option>
+                            </md-select>
+                        </md-input-container>
+
+                    </div>
+
+                    <md-button ng-click="saveSleepEntry();" class="md-accent" aria-label="View">Submit</md-button>
+
+                    <md-button ng-click="goTo('reports');" class="md-accent" aria-label="View">Reports</md-button>
+
+                </form>
+
+            </md-card>
+
+        </md-content>
+
+    </md-content>
+</div>

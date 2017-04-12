@@ -1,0 +1,36 @@
+<div ng-cloak>
+	<md-toolbar class="primary-met-bg" role="toolbar">			
+		<div class="md-toolbar-tools">
+			<h4 class="md-title">
+				Mental Health App
+			</h4>
+		</div>
+	</md-toolbar>			
+	<md-content>	
+		<div layout="row" layout-xs="column">			
+			<md-card flex ng-click="redirect('#/log')">
+				<img ng-src="img/washedout.png" class="md-card-image" alt="Check-In Later">
+				<md-card-title>
+					<md-card-title-text>
+						<div layout="column" layout-align="center center">
+							<span class="md-headline">Continue to the Mental Health Application</span>
+							<span class="md-subhead">Check-In Later</span>
+						</div>
+					</md-card-title-text>
+				</md-card-title>
+			</md-card>
+			
+			<md-card flex ng-click="redirect('#/checkin')">
+				<img ng-src="img/washedout.png" class="md-card-image" alt="Check-In">
+				<md-card-title>
+					<md-card-title-text>
+						<div layout="column" layout-align="center center">
+							<span class="md-headline">Check-In</span>
+							<span class="md-subhead">Time since your last check-in: 6 Hours</span>
+						</div>
+					</md-card-title-text>
+				</md-card-title>
+			</md-card>
+		</div>
+	</md-content>
+</div>

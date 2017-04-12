@@ -1,0 +1,44 @@
+<div layout="column" ng-cloak>
+	<md-toolbar class="primary-met-bg" role="toolbar">			
+		<div class="md-toolbar-tools">
+			<h4 class="md-title">
+				<img src="img/jesse_tiny.png" class="md-avatar" alt="Jesse">&nbsp;I'm {{getMainStatus()}}
+			</h4>
+		</div>
+	</md-toolbar>
+			  		
+	<md-content>		  					
+		<div layout="row" layout-align="center start" layout-wrap>		
+			<md-card ng-click="setYourStatus('Tired');goTo('tier1')">
+				<img src="img/not_well.png" class="md-card-image" alt="tired">
+			    <md-card-actions layout="row" layout-align="center center">
+					<md-button href="#/tier1" ng-click="setYourStatus('Tired')" class="md-accent" aria-label="Tired">Tired</md-button>
+			    </md-card-actions>
+			</md-card>	
+			<md-card ng-click="setYourStatus('Stressed');goTo('toolsStress')">
+				<img src="img/not_well.png" class="md-card-image" alt="Stressed">
+			    <md-card-actions layout="row" layout-align="center center">
+					<md-button href="#/toolsStress" ng-click="setYourStatus('Stressed')" class="md-accent" aria-label="Stressed">Stressed</md-button>
+			    </md-card-actions>
+			</md-card>
+			<md-card ng-click="setYourStatus('Angry');goTo('toolsAnger')">
+				<img src="img/not_well.png" class="md-card-image" alt="angry">
+			    <md-card-actions layout="row" layout-align="center center">
+					<md-button href="#/toolsAnger" ng-click="setYourStatus('Angry')" class="md-accent" aria-label="Angry">Angry</md-button>
+			    </md-card-actions>
+			</md-card>
+			<md-card ng-click="setYourStatus('Confused');goTo('tier1')">
+				<img src="img/not_well.png" class="md-card-image" alt="Confused">
+			    <md-card-actions layout="row" layout-align="center center">
+					<md-button href="#/tier1" ng-click="setYourStatus('Confused')" class="md-accent" aria-label="Confused">Confused</md-button>
+			    </md-card-actions>
+			</md-card>
+			<md-card ng-click="setYourStatus('Unfocused');goTo('tier1')">
+				<img src="img/not_well.png" class="md-card-image" alt="Unfocused">
+			    <md-card-actions layout="row" layout-align="center center">
+					<md-button href="#/tier1" ng-click="setYourStatus('Unfocused')" class="md-accent" aria-label="Unfocused">Unfocused</md-button>
+			    </md-card-actions>
+			</md-card>
+		</div>
+	</md-content>	
+</div>

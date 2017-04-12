@@ -1,0 +1,22 @@
+<div ng-cloak id="popupContainer">			
+	<md-content>
+		<md-list ng-hide="!results || results.length == 0">
+	      <md-list-item ng-repeat="item in results">
+	      	<div flex>
+	      		<h4>{{item.mood}}</h4>
+	          	<span>{{item.timestamp | date:"MM/dd/yyyy @ h:mma"}}</span>
+	      	</div>
+	      	<span flex></span>
+	      	<md-button class="md-secondary md-accent" ng-click="showMoreInfo($event, item)">{{translation.VIEW}}</md-button>
+	        <md-divider ng-if="!$last"></md-divider>
+	      </md-list-item>
+	    </md-list>
+	    <md-card ng-show="!results || results.length == 0">
+	    	<md-card-title>
+          		<md-card-title-text>
+          			<span><ng-md-icon icon="info" style="fill: gray"></ng-md-icon>&nbsp;{{translation.NO_ENTRIES}}</span>
+          		</md-card-title-text>
+          	</md-card-title>
+	    </md-card>
+  	</md-content>
+</div>
