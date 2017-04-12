@@ -29,8 +29,14 @@
 			</div>
 		</md-toolbar>
 		<md-content role="navigation">
+			<md-list-item ng-click="closeDrawer('left')" href="#/open">
+				<ng-md-icon icon="home" style="color: gray"></ng-md-icon>
+				<p class="md-body-2">&nbsp;My Dashboard</p>
+				<span flex></span>
+				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
+			</md-list-item>
 			<md-list-item ng-click="closeDrawer('left')" href="#/main">
-				<ng-md-icon icon="{{action.icon}}" style="color: gray"></ng-md-icon>
+				<ng-md-icon icon="track_changes" style="color: gray"></ng-md-icon>
 				<p class="md-body-2">&nbsp;Wellness Tracker </p>
 				<span flex></span>
 				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
@@ -66,12 +72,6 @@
 				<span flex></span>
 				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
 			</md-list-item>
-			<md-list-item ng-click="closeDrawer('left')" href="#/attitude">
-				<ng-md-icon icon="assessment" style="color: gray"></ng-md-icon>
-				<p class="md-body-2">&nbsp;Attitude for Gratitude</p>
-				<span flex></span>
-				<ng-md-icon icon="chevron_right" style="color: gray"></ng-md-icon>
-			</md-list-item>
 			<md-divider></md-divider>
 			<md-list-item ng-click="closeDrawer('left')" href="#/links">
 				<ng-md-icon icon="live_help" style="color: gray"></ng-md-icon>
@@ -101,14 +101,14 @@
 					<ng-md-icon icon="menu" fill="style: white"></ng-md-icon>
 				</md-button>
 				<h4 class="md-title"><img src="img/jesse_tiny.png" class="md-avatar" alt="Jesse">&nbsp;{{getTitle()}}</h4>
+				<span flex></span>
+				<md-button class="md-icon-button" href="#myspace" aria-label="Add">
+					<ng-md-icon icon="note_add" fill="style: white"></ng-md-icon>
+				</md-button>
 			</div>
 		</md-toolbar>
 	
 		<div ng-view></div>
-			
-<!-- 		<div id="wm-mw"> -->
-<!-- 			<img src="lib/met/images/canada-col.svg" onerror="this.src='lib/met/images/canada-col.png'" alt="Symbol of the Government of Canada"> -->
-<!-- 		</div> -->
 	</section>
 		
     <script src="lib/angular/js/angular.min.js"></script>    

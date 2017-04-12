@@ -1,8 +1,9 @@
-<div ng-cloak>			
+<div ng-cloak>		
+<md-content class="md-padding">	
   <md-card>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-headline"><img src="img/jesse_tiny.png" class="md-avatar" alt="Jesse">&nbsp;{{translation.CHECKIN_TELL_ME}}</span>
+        <span class="md-headline"><img src="img/jesse_tiny.png" class="md-avatar" alt="Jesse">&nbsp;Tell me why you are feeling this way?</span>
       </md-card-title-text>
     </md-card-title>
 
@@ -16,7 +17,7 @@
   <md-card>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-headline"><img src="img/jesse_tiny.png" class="md-avatar" alt="Jesse">&nbsp;{{translation.CHECKIN_HOW_TO_COPE}}</span>
+        <span class="md-headline"><img src="img/jesse_tiny.png" class="md-avatar" alt="Jesse">&nbsp;How are you coping with your feelings?</span>
       </md-card-title-text>
     </md-card-title>
 
@@ -25,8 +26,9 @@
         	<textarea md-select-on-focus aria-label="howAre" ng-model="howAre" rows="3"></textarea>
         </md-input-container>
     </md-card-content>
-    <md-card-actions layout="row" layout-align="end center">
-		<md-button class="md-accent" ng-click="saveToLog()" href="#/log">{{translation.CONTINUE}}&nbsp;<ng-md-icon icon="navigate_next" style="fill: grey"></ng-md-icon></md-button>
+    <md-card-actions layout="column">
+		<md-button class="md-primary md-raised" ng-click="saveToLog()" href="#/log">Save&nbsp;<ng-md-icon icon="navigate_next" style="fill: white"></ng-md-icon></md-button>
     </md-card-actions>
   </md-card>
+  </md-content>
 </div>

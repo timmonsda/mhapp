@@ -1,5 +1,5 @@
 <div ng-controller="ResourcesCtrl as ctrl" ng-cloak>
-	<div flex-gt-sm="80">
+	<div flex>
 		<form ng-submit="$event.preventDefault()">
 			<md-autocomplete
 		          md-selected-item="ctrl.selectedItem"
@@ -18,7 +18,7 @@
 		    </md-autocomplete>
 	    </form>
     </div>
-   	<md-switch class="md-padding" ng-model="gpsState" ng-change="updateList(gpsState)" ng-if="isGPSEnabled()" aria-label="gps">GPS Results <span>({{getProvince()}})</span></md-switch>
+   	<md-switch flex class="md-padding" ng-model="gpsState" ng-change="updateList(gpsState)" ng-if="isGPSEnabled()" aria-label="gps">GPS Results <span>({{getProvince()}})</span></md-switch>
 	<md-content>      
 	    <md-list>
 	      <md-list-item class="md-2-line" ng-repeat="item in ctrl.querySearch(ctrl.searchText)">

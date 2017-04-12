@@ -482,14 +482,65 @@ app.controller('DiaryCtrl', ['$scope', '$mdSidenav', '$mdDialog', function ($sco
 }]);
 
 
-app.controller('ResourcesCtrl', ['$scope', '$mdSidenav', '$http', function($scope, $mdSidenav, $http){
+app.controller('ResourcesCtrl', ['$scope', '$mdSidenav', '$http', '$q', function($scope, $mdSidenav, $http, $q){		
+    var self = this;
+    self.querySearch = querySearch;
+	$scope.gpsState = $scope.isGPSEnabled();
     
 	$scope.setTitle('Resources');
 	$scope.setSideNavState(true);
 	
-	//Grab the JSON file from the server, and output it into the scope
-	$http.get('json/resources.json').then(function (response, error) {$scope.resources = response.data});
+	$scope.results = [];
+	$scope.resources = [];
+	$scope.loadResources = function(){		
+		//Grab the JSON file from the server, and output it into the scope
+		$http.get('json/resources.json').then(function (response, error) {
+			$scope.resources = response.data;
+			$scope.updateList($scope.gpsState);
+		});
+	}
 	
+	$scope.updateList = function(state){
+		$scope.gpsState = state;
+		var oResults = [];
+        var deferred = $q.defer();
+        var promise = deferred.promise;
+        promise.then(function () {            
+    		$scope.resources.forEach(function(contact){
+    			if($scope.gpsState){
+    				if(angular.lowercase(contact.region_en) === angular.lowercase($scope.getProvince())){
+    					oResults.push(contact);
+    				//Handle NHQ	
+    				}else if(angular.lowercase(contact.region_en) === angular.lowercase("NHQ") 
+    						&& angular.lowercase($scope.getProvince()) === angular.lowercase("Ontario")){
+    					oResults.push(contact);
+    				}
+    				
+    			}else
+    				oResults.push(contact);
+    		});
+            
+        }).then(function () {
+        	$scope.results = oResults;
+        });
+        deferred.resolve();
+	}
+	
+	function querySearch(query) {
+		return query ? $scope.results.filter(createFilterFor(query)) : $scope.results;
+    }
+	
+	function createFilterFor(query) {
+        var lowercaseQuery = angular.lowercase(query);
+        return function filterFn(contact) {
+            return (angular.lowercase(contact.name).indexOf(lowercaseQuery) === 0) 
+	          	|| (angular.lowercase(contact.region_en).indexOf(lowercaseQuery) === 0)
+	          	|| (angular.lowercase(contact.secion_en).indexOf(lowercaseQuery) === 0);	
+        }
+    }
+	
+	$scope.loadResources();
+	$scope.translate();
 }]);
 
 app.controller('AppCtrl', ['$scope', '$location', '$mdToast', '$mdSidenav', 'translationService', "$window", function($scope, $location, $mdToast, $mdSidenav, translationService, $window){

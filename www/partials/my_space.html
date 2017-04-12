@@ -1,8 +1,9 @@
 <div ng-cloak id="popupContainer">
+<md-content class="md-padding">
   <md-card>
     <md-card-title>
       <md-card-title-text>
-        <span class="md-headline"><img src="img/jesse_tiny.png" class="md-avatar" alt="Jesse">&nbsp;{{translation.DIARY_TELL_ME}}</span>
+        <span class="md-headline"><img src="img/jesse_tiny.png" class="md-avatar" alt="Jesse">&nbsp;Tell me about your day!</span>
       </md-card-title-text>
     </md-card-title>
 
@@ -10,7 +11,10 @@
 		<md-input-container class="md-block">
 			<textarea md-select-on-focus aria-label="tellMe" ng-model="diaryContent" rows="3"></textarea>
 		</md-input-container>
-		<md-button class="md-accent" ng-click="saveToDiary()" href="#/diary">{{translation.DIARY_SAVE}}&nbsp;<ng-md-icon icon="navigate_next" style="fill: grey"></ng-md-icon></md-button>
     </md-card-content>
+    <md-card-actions layout="column">
+		<md-button class="md-primary md-raised" ng-click="saveToDiary()" href="#/diary">Save&nbsp;<ng-md-icon icon="navigate_next" style="fill: white"></ng-md-icon></md-button>
+    </md-card-actions>
   </md-card>
+  </md-content>
 </div>
