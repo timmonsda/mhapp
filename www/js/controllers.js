@@ -20,6 +20,20 @@ app.controller('CheckinCtrl', ['$scope', '$mdSidenav', '$http', function($scope,
 		$scope.checkins = response.data;
 	});
 	
+//	$scope.save = function(){
+//		var existingEntries = [];
+//		if(met.storage.exists("allCheckinEntries")){
+//			existingEntries = JSON.parse(met.storage.load("allCheckinEntries"));
+//		}
+//				    
+//	    var entry = {
+//	        timestamp : $scope.timestamp
+//	    };
+//
+//	    existingEntries.push(entry);
+//	    met.storage.save("allCheckinEntries", JSON.stringify(existingEntries));		
+//	}
+	
 	$scope.translate();
 }]);
 
@@ -396,6 +410,29 @@ app.controller('Tier1Ctrl', ['$scope', '$mdSidenav', '$http', function($scope, $
 			$scope.selectedExplanation = item;
 		}
 	}
+	
+	$scope.saveToLog = function(){
+		var existingEntries = [];
+		if(met.storage.exists("allLogEntries")){
+			existingEntries = JSON.parse(met.storage.load("allLogEntries"));
+		}
+				    
+		if($scope.getYourStatus()==='N/A'){
+			//do nothing
+		}else{
+		    var entry = {
+		        mood: $scope.getYourStatus(),
+		        tellMe: $scope.tellMe,
+		        howAre: $scope.howAre,
+		        timestamp : $scope.timestamp
+		    };
+
+		    existingEntries.push(entry);
+		    met.storage.save("allLogEntries", JSON.stringify(existingEntries));		
+		}
+	}
+	
+	$scope.translate();
 }]);
 
 app.controller('LogCtrl', ['$scope', '$mdSidenav', '$mdDialog', function($scope, $mdSidenav, $mdDialog){
